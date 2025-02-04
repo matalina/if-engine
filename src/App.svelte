@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { mdiClose, mdiMenu } from '@mdi/js/mdi.js';
 
-  import {Router, Link, Route} from 'svelte-routing';
+  import {Router, Route} from 'svelte-routing';
   import Home from './pages/Home.svelte';
-  import About from './pages/About.svelte';
   import Icon from './components/ui/Icon.svelte';
-  import './app.css';
   import Logo from './components/ui/Logo.svelte';
-    import MenuItem from './components/ui/MenuItem.svelte';
+  import MenuItem from './components/ui/MenuItem.svelte';
+  import Page from './pages/Page.svelte';
 
   let url = $state('');
   let menuOpen = $state(false);
@@ -38,7 +37,7 @@
   </div>
   <section id="main">
     <Route path="/"><Home /></Route>
-    <Route path="/about"><About /></Route>
+    <Route path="/about"><Page name='about' /></Route>
   </section>
 </Router>
 
@@ -46,39 +45,28 @@
   @reference "tailwindcss/theme";
 
   header, .header {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    position: relative;
+    @apply m-0 p-0 flex gap-[1rem] items-center relative;
   }
   section#main {
-    padding: 1rem;
+    @apply p-[1rem];
   }
   nav#side-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto;
+    @apply absolute top-0 left-0 overflow-auto w-full md:w-96 h-full border-r;
     background: theme(--color-gray-100);
   }
   .menuOpen{
-    display: block;
+    @apply block;
   }
   .menuClosed {
-    display: none;
+    @apply hidden;
   }
   #side-menu {
-    display: flex;
-    flex-direction: column;
+    @apply flex flex-col;
   }
   button {
-    padding: 1rem;
+    @apply p-[1rem];
   }
   #side-menu :global(a) {
-    padding: .25rem 1rem;
+    @apply py-[.25rem] px-[1rem];
   }
 </style>

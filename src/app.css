@@ -1,1 +1,52 @@
 @import "tailwindcss";
+html,
+body,
+#app {
+  @apply w-full md:w-96 m-auto;
+}
+
+#app {
+  @apply relative border-l border-r;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+table,
+img {
+  @apply mb-3;
+}
+
+h1 {
+  @apply text-4xl font-bold;
+
+}
+
+h2 {
+  @apply text-3xl font-bold;
+}
+
+table {
+  @apply text-sm;
+}
+
+td,
+th {
+  @apply p-2 border;
+}
+li {
+  @apply list-inside;
+}
+
+ul li {
+  @apply list-disc;
+}
+
+ol li {
+  @apply list-decimal;
+}
