@@ -54,4 +54,8 @@ export interface Result {
   keywords?: string[];
 }
 
-export type ResultType = 'dice' | 'ai'
+export type ResultType = 'dice' | 'ai';
+
+export interface Settings {
+  attributes: string[];
+}
