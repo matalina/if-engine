@@ -7,6 +7,7 @@
   import Logo from './components/ui/Logo.svelte';
   import MenuItem from './components/ui/MenuItem.svelte';
   import Page from './pages/Page.svelte';
+    import Settings from './pages/Settings.svelte';
 
   let url = $state('');
   let menuOpen = $state(false);
@@ -38,12 +39,11 @@
   <section id="main">
     <Route path="/"><Home /></Route>
     <Route path="/about"><Page name='about' /></Route>
+    <Route path="/settings"><Settings/></Route>
   </section>
 </Router>
 
 <style>
-  @reference "tailwindcss/theme";
-
   header, .header {
     @apply m-0 p-0 flex gap-[1rem] items-center relative;
   }
@@ -51,8 +51,7 @@
     @apply p-[1rem];
   }
   nav#side-menu {
-    @apply absolute top-0 left-0 overflow-auto w-full md:w-96 h-full border-r;
-    background: theme(--color-gray-100);
+    @apply absolute top-0 left-0 overflow-auto w-full md:w-96 h-full border-r bg-gray-500;
   }
   .menuOpen{
     @apply block;
@@ -68,5 +67,8 @@
   }
   #side-menu :global(a) {
     @apply py-[.25rem] px-[1rem];
+  }
+  #main {
+    @apply w-full min-h-screen;
   }
 </style>
